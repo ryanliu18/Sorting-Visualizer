@@ -10,3 +10,19 @@
     margin: 0 1px;
 
 }
+
+.array-compared {
+    width: 3px;
+    background-color: 	rgb(223, 79, 79);
+    display: inline-block;
+    margin: 0 1px;
+
+}
+
+.array-sorted {
+    width: 3px;
+    background-color: 	rgba(107, 241, 54, 0.822);
+    display: inline-block;
+    margin: 0 1px;
+
+}

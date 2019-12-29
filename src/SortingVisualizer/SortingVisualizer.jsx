@@ -1,5 +1,7 @@
 import React from 'react';
 import './SortingVisualizer.css';
+import {mergeSort} from '../SortingAlgorithms/mergeSort';
+
 
 export default class SortingVisualizer extends React.Component {
     constructor(props) {
@@ -28,6 +30,20 @@ export default class SortingVisualizer extends React.Component {
     }
 
     mergeSort() {
+
+        const animations = mergeSort(this.state.array);
+        for (var i = 0; i < animations.length; i++) {
+            const {comparison} = animations[i];
+            setTimeout(() => {
+                const allBars = document.getElementsByClassName('array-bar'); //get element by classname?
+                allBars[comparison[0]].style.backgroundColor = 'red';
+                allBars[comparison[1]].style.backgroundColor =  'red';
+                setTimeout(() => {
+                    allBars[comparison[0]].style.backgroundColor = 'turquoise';
+                    allBars[comparison[1]].style.backgroundColor = 'turquoise';
+                }, (i+1) * 10);
+            }, i * 10);
+        }
 
     }
 

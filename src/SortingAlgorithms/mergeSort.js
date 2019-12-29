@@ -1,40 +1,61 @@
-export function mergeSort(array) {
+export function getMergeSortAnimations(array) {
 
-    if (array.length == 1) return array;
+    if (array.length <= 1) return array;
+    const auxArray = array.slice();
+    const animations = [];
 
-    const middleIdx = Math.floor(array.length / 2);
+   mergeSortHelper(array,0,array.length-1,auxArray,animations);
+   return animations;
 
-    const firstMergeSort = mergeSort(array.slice(0, middleIdx));
-    const secondMergeSort = mergeSort(array.slice(middleIdx));
-
-    return merge(firstMergeSort, secondMergeSort);
 
 }
 
-function merge(array1, array2) {
-    var i = 0;  //index for array1
-    var j = 0;  //index for array2
-    var sortedArray = [];
-    while (i < array1.length && j < array2.length) {
-        if (array1[i] > array2[j]) {
-            sortedArray.push(array2[j]);
-            j++;
+function mergeSortHelper(mainArray,startIdx,endIdx,auxArray,animations) {
+    if (startIdx === endIdx) return;
+    const midIdx = Math.floor((startIdx + endIdx)/2);
+    mergeSortHelper(mainArray,startIdx,midIdx,auxArray,animations);
+    mergeSortHelper(mainArray,midIdx+1,endIdx,auxArray,animations);
+    merge(mainArray,startIdx,midIdx,endIdx,auxArray,animations);
+}
+
+
+
+
+function merge(mainArray,startIdx,midIdx,endIdx,auxArray,animations) {
+    var k = startIdx;  //index for mainArray
+    var i = startIdx;  //index for first half of auxArray
+    var j = midIdx+1;  //index for second half of auxArray
+
+    while (i <= midIdx && j <= endIdx) {
+        animations.push([i,j]);
+        animations.push([i,j]);
+        if (auxArray[i] > auxArray[j]) {
+            animations.push([k,auxArray[j]]);
+            mainArray[k] = auxArray[j];
+            k++; j++;
         } else {
-            sortedArray.push(array1[i]);
-            i++;
+            animations.push([k,auxArray[i]]);
+            mainArray[k] = auxArray[i];
+            k++;i++;
         }
     }
 
-    while(i < array1.length) {
-        sortedArray.push(array1[i]);
-        i++;
+    while (i<= midIdx) {
+        animations.push([i,i]);
+        animations.push([i,i]);
+        animations.push([k,auxArray[i]]);
+        mainArray[k] = auxArray[i];
+        k++;i++;
     }
 
-    while (j < array2.length) {
-        sortedArray.push(array2[j]);
-        j++;
+    while (j<= endIdx) {
+        animations.push([j,j]);
+        animations.push([j,j]);
+        animations.push([k,auxArray[j]]);
+        mainArray[k] = auxArray[j];
+        k++;j++;
     }
 
-    return sortedArray;
+
 
 }
