@@ -2,7 +2,7 @@ import React from 'react';
 import './SortingVisualizer.css';
 import {getMergeSortAnimations} from '../SortingAlgorithms/mergeSort';
 
-const ANIMATION_SPEED  = 3;
+const ANIMATION_SPEED  = 1; //smaller the speed the faster
 
 const NUM_OF_BARS = 300;
 
@@ -33,7 +33,7 @@ export default class SortingVisualizer extends React.Component {
     resetArray() {
         if (isRunning) return;
         const array = [];
-        array.push(UPPER_BOUND_SIZE);
+        array.push(UPPER_BOUND_SIZE); //so we guarantee same height of allBars each time :)
         for (let i =0; i< NUM_OF_BARS-1; i++) {
             array.push(this.getRandomInt(LOWER_BOUND_SIZE,UPPER_BOUND_SIZE));
         }
@@ -49,7 +49,8 @@ export default class SortingVisualizer extends React.Component {
         isRunning = true;
 
         const animations = getMergeSortAnimations(this.state.array);
-        for (var i = 0; i < animations.length; i++) {
+        for (let i = 0; i < animations.length; i++) {           //using var i = 0 doesnt work for some reason...
+
             const allBars = document.getElementsByClassName('array-bar');
 
             if (i % 3 === 0) {
@@ -75,8 +76,16 @@ export default class SortingVisualizer extends React.Component {
                 const firstBar = allBars[firstBarIdx];
                 setTimeout(() => {
                     firstBar.style.height = `${newHeight}px`;
+                    if (i == animations.length -1) isRunning = false;
+                    console.log(isRunning);
+
                 }, i * ANIMATION_SPEED);
             }
+
+            //if (i === animations.length -1) { 
+            //    isRunning = false;
+            //}
+
 
         }
 
