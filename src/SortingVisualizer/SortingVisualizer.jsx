@@ -1,7 +1,20 @@
 import React from 'react';
 import './SortingVisualizer.css';
-import {mergeSort} from '../SortingAlgorithms/mergeSort';
+import {getMergeSortAnimations} from '../SortingAlgorithms/mergeSort';
 
+const ANIMATION_SPEED  = 3;
+
+const NUM_OF_BARS = 300;
+
+const LOWER_BOUND_SIZE = 10;
+
+const UPPER_BOUND_SIZE = 800;
+
+const NORMAL_COLOUR = 'turquoise';
+
+const COMPARISON_COLOUR = 'red';
+
+var isRunning = false;
 
 export default class SortingVisualizer extends React.Component {
     constructor(props) {
@@ -18,9 +31,11 @@ export default class SortingVisualizer extends React.Component {
     }
 
     resetArray() {
+        if (isRunning) return;
         const array = [];
-        for (let i =0; i< 300; i++) {
-            array.push(this.getRandomInt(10,800));
+        array.push(UPPER_BOUND_SIZE);
+        for (let i =0; i< NUM_OF_BARS-1; i++) {
+            array.push(this.getRandomInt(LOWER_BOUND_SIZE,UPPER_BOUND_SIZE));
         }
         this.setState({array});
     }
@@ -30,19 +45,39 @@ export default class SortingVisualizer extends React.Component {
     }
 
     mergeSort() {
+        if (isRunning) return;
+        isRunning = true;
 
-        const animations = mergeSort(this.state.array);
+        const animations = getMergeSortAnimations(this.state.array);
         for (var i = 0; i < animations.length; i++) {
-            const {comparison} = animations[i];
-            setTimeout(() => {
-                const allBars = document.getElementsByClassName('array-bar'); //get element by classname?
-                allBars[comparison[0]].style.backgroundColor = 'red';
-                allBars[comparison[1]].style.backgroundColor =  'red';
+            const allBars = document.getElementsByClassName('array-bar');
+
+            if (i % 3 === 0) {
+                const [firstBarIdx,secondBarIdx] = animations[i];
+                const firstBar = allBars[firstBarIdx];
+                const secondBar = allBars[secondBarIdx];
                 setTimeout(() => {
-                    allBars[comparison[0]].style.backgroundColor = 'turquoise';
-                    allBars[comparison[1]].style.backgroundColor = 'turquoise';
-                }, (i+1) * 10);
-            }, i * 10);
+                    firstBar.style.backgroundColor = COMPARISON_COLOUR;
+                    secondBar.style.backgroundColor = COMPARISON_COLOUR;
+                }, i * ANIMATION_SPEED);
+
+            } else if (i % 3 === 1) {
+                const [firstBarIdx,secondBarIdx] = animations[i];
+                const firstBar = allBars[firstBarIdx];
+                const secondBar = allBars[secondBarIdx];
+                setTimeout(() => {
+                    firstBar.style.backgroundColor = NORMAL_COLOUR;
+                    secondBar.style.backgroundColor = NORMAL_COLOUR;
+                }, i * ANIMATION_SPEED);
+
+            } else { //i % 3 === 2
+                const [firstBarIdx,newHeight] = animations[i];
+                const firstBar = allBars[firstBarIdx];
+                setTimeout(() => {
+                    firstBar.style.height = `${newHeight}px`;
+                }, i * ANIMATION_SPEED);
+            }
+
         }
 
     }

@@ -13,8 +13,8 @@ export function getMergeSortAnimations(array) {
 function mergeSortHelper(mainArray,startIdx,endIdx,auxArray,animations) {
     if (startIdx === endIdx) return;
     const midIdx = Math.floor((startIdx + endIdx)/2);
-    mergeSortHelper(mainArray,startIdx,midIdx,auxArray,animations);
-    mergeSortHelper(mainArray,midIdx+1,endIdx,auxArray,animations);
+    mergeSortHelper(auxArray,startIdx,midIdx,mainArray,animations); //why is order aux then main?
+    mergeSortHelper(auxArray,midIdx+1,endIdx,mainArray,animations);
     merge(mainArray,startIdx,midIdx,endIdx,auxArray,animations);
 }
 
