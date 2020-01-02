@@ -16,7 +16,7 @@ const ANIMATION_SPEED_SELECTION_SORT = 0.7;
 
 const ANIMATION_SPEED_INSERTION_SORT = 1;
 
-const ANIMATION_SPEED_QUICK_SORT = 1.5;
+const ANIMATION_SPEED_QUICK_SORT = 2.7;
 
 const ANIMATION_SPEED_HEAP_SORT = 1.2
 
@@ -386,7 +386,7 @@ export default class SortingVisualizer extends React.Component {
 
 
     }
-
+//
     insertionSort() {
         if (isRunning) return;
         isRunning = true;

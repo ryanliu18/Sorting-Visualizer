@@ -50,7 +50,7 @@ function heapify(animations,array,sizeOfHeap,rootIdx) {
         array[rootIdx] = array[largestOfRootAndChildrenIdx];
         array[largestOfRootAndChildrenIdx] = temp;
         
-        heapify(array,sizeOfHeap,largestOfRootAndChildrenIdx);
+        heapify(animations,array,sizeOfHeap,largestOfRootAndChildrenIdx);
     }
 
 }
