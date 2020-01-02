@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&display=swap");
+
+
+.btn-group button {
+    width: 200px;
+    height: 70px;
+    border: 3px solid hsl(214, 90%, 23%);
+    background-color: hsl(214, 100%, 70%);
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-weight: lighter;
+    cursor: pointer;
+    display: block;
+    margin-right: 30px;
+    margin-bottom: -3px;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-group button:hover {
+    background-color: hsl(214, 51%, 61%);
+    transform: scale(1.08);
+    transition: all 0.2s ease;
+    color: rgb(225, 226, 159);
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: row;
+    padding: 15px 10px 10px 15px;
+    justify-content: left;
+
+  }
+
+
+.title-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: hsl(220, 13%, 18%);
+    padding: 0px 0px 0px 0px;
+    height: 60px;
+    border: solid black;
+  }
+  
+  .title {
+    width: 360px;
+    display: block;
+    height: 60px;
+    width: 500px;
+    
+    font-size: 40px;
+    text-align: center;
+    text-transform: uppercase;
+    color: hsl(214, 100%, 70%);
+    text-decoration: underline;
+    text-decoration-color: black;
+    text-align: center;
+    font-family: "Open Sans Condensed", sans-serif;
+    cursor: pointer;
+    background-color: hsl(0, 0%, 100%);
+  }
+  
+  .title-button-row button {
+    width: 100px;
+    height: 40px;
+    border: 3px solid hsl(214, 90%, 23%);
+    background-color: hsl(214, 100%, 70%);
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-weight: lighter;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+  
+  .title-button-row button:hover {
+    background-color: hsl(214, 51%, 61%);
+    transform: scale(1.08);
+    transition: all 0.2s ease;
+    color: rgb(225, 226, 159);
+  }
+  
+  .info-button button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid hsl(214, 90%, 23%);
+    background-color: hsl(214, 100%, 70%);
+    color: #ffffff;
+    font-size: 20px;
+    font-family: "Open Sans Condensed", sans-serif;
+    font-weight: lighter;
+    cursor: pointer;
+    margin-right: 10px;
+    margin-left: 10px;
+    text-align: center;
+    transition: all 0.2s ease;
+  }
+  
+  .info-button button:hover {
+    background-color: hsl(214, 51%, 61%);
+    transform: scale(1.08);
+    transition: all 0.2s ease;
+    color: rgb(225, 226, 159);
+    border-radius: 50%;
+  }
