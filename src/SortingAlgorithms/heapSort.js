@@ -3,6 +3,7 @@ export function getHeapSortAnimations(array) {
     for (let i = array.length/2 -1; i >= 0; i--) {
         heapify(animations,array,array.length,i);
     }
+    //test
 
     for (let i = array.length -1; i >= 0; i--) {
 
