@@ -7,10 +7,10 @@ import {getInsertionSortAnimations} from '../SortingAlgorithms/insertionSort';
 import {getQuickSortAnimations} from '../SortingAlgorithms/quickSort';
 import {getHeapSortAnimations} from '../SortingAlgorithms/heapSort';
 import {getCocktailShakerSortAnimations} from '../SortingAlgorithms/cocktailShaker';
-import {getPatienceSortAnimations} from '../SortingAlgorithms/patienceSort';
+import {getShellSortAnimations} from '../SortingAlgorithms/shellSort';
 import "../Components/Button.css";
 
-const ANIMATION_SPEED_MERGE_SORT  = 2; //smaller the speed value, the faster the sort
+const ANIMATION_SPEED_MERGE_SORT  = 3.6; //smaller the speed value, the faster the sort
 
 const ANIMATION_SPEED_BUBBLE_SORT = 0.6;
 
@@ -20,11 +20,15 @@ const ANIMATION_SPEED_INSERTION_SORT = 1;
 
 const ANIMATION_SPEED_QUICK_SORT = 2.7;
 
-const ANIMATION_SPEED_HEAP_SORT = 1.2;
+const ANIMATION_SPEED_HEAP_SORT = 2;
+
+const ANIMATION_SPEED_COCKTAILSHAKER_SORT = 0.7;
+
+const ANIMATION_SPEED_SHELL_SORT = 2;
 
 var NUM_OF_BARS = 100;
 
-const SCALING_FACTOR = 4;
+const SCALING_FACTOR = 5.4;
 
 const NORMAL_COLOUR = 'cyan';
 
@@ -71,7 +75,7 @@ export default class SortingVisualizer extends React.Component {
         }
     }
 
-    sortMergeOrInsert(algorithm) { //Sorting Algorithms that DO NOT SWAP... hence mod 3
+    sortWithOutSwap(algorithm) { //Sorting Algorithms that DO NOT SWAP... hence use mod 3
         if (isRunning) return;
         isRunning = true;
         this.resetColor();
@@ -129,7 +133,7 @@ export default class SortingVisualizer extends React.Component {
 
     }
 
-    sortBubbleOrHeapOrQuickOrSelection(algorithm) { //Sorting Algorithms that SWAP... hence mod 2
+    sortWithSwap(algorithm) { //Sorting Algorithms that SWAP... hence use mod 2
         if (isRunning) return;
         isRunning = true;
         this.resetColor();
@@ -155,6 +159,11 @@ export default class SortingVisualizer extends React.Component {
         if (algorithm === "selectionSort") {
             animations = getSelectionSortAnimations(this.state.array);
             ANIMATION_SPEED = ANIMATION_SPEED_SELECTION_SORT;
+        }
+
+        if (algorithm === "cocktailShakerSort") {
+            animations = getCocktailShakerSortAnimations(this.state.array);
+            ANIMATION_SPEED = ANIMATION_SPEED_COCKTAILSHAKER_SORT;
         }
 
         for (let i = 0; i < animations.length; i++) {           //using var i = 0 doesnt work for some reason...
@@ -217,34 +226,36 @@ export default class SortingVisualizer extends React.Component {
     }
 
     bubbleSort() { 
-        this.sortBubbleOrHeapOrQuickOrSelection("bubbleSort");
+        this.sortWithSwap("bubbleSort");
     }
 
     heapSort() {
-        this.sortBubbleOrHeapOrQuickOrSelection("heapSort");
+        this.sortWithSwap("heapSort");
     }
 
     quickSort() {
-        this.sortBubbleOrHeapOrQuickOrSelection("quickSort");
+        this.sortWithSwap("quickSort");
     }
 
     selectionSort() {
-        this.sortBubbleOrHeapOrQuickOrSelection("selectionSort");
-    }
-
-    mergeSort() {
-        this.sortMergeOrInsert("mergeSort");
-    }
-
-    insertionSort() {
-        this.sortMergeOrInsert("insertionSort");
+        this.sortWithSwap("selectionSort");
     }
 
     cocktailShakerSort() {
-
+        this.sortWithSwap("cocktailShakerSort");
     }
 
-    patienceSort() {
+    mergeSort() {
+        this.sortWithOutSwap("mergeSort");
+    }
+
+    insertionSort() {
+        this.sortWithOutSwap("insertionSort");
+    }
+
+
+    shellSort() {
+        
 
     }
 
@@ -321,7 +332,7 @@ export default class SortingVisualizer extends React.Component {
             <button onClick = {() => this.heapSort()}> Heap Sort</button> 
             <button onClick = {() => this.quickSort()}> Quick Sort</button> 
             <button onClick = {() => this.cocktailShakerSort()}> Cocktail Shaker Sort</button> 
-            <button onClick = {() => this.patienceSort()}> Patience Sort</button> 
+            <button onClick = {() => this.shellSort()}> Shell Sort</button> 
             </div>
 
 

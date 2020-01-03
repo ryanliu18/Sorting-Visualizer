@@ -1,4 +1,4 @@
-export function getPatienceSortAnimations(array) {
+export function getShellSortAnimations(array) {
     const animations = [];
 
     return animations;

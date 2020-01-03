@@ -13,6 +13,8 @@ export function getCocktailShakerSortAnimations(array) {
             animations.push([i,i+1]);
             animations.push([i,i+1]);
             if (array[i] > array[i+1]) {
+                animations.push("Swap");
+                animations.push([i,array[i+1],i+1,array[i]]);
                 //swap array[i] and array[i+1]
                 let temp = array[i];
                 array[i] = array[i+1];
@@ -28,7 +30,11 @@ export function getCocktailShakerSortAnimations(array) {
 
         //backward pass right to left
         for (let i = endIdx-1; i >= startIdx; i--) {
+            animations.push([i,i+1]);
+            animations.push([i,i+1]);
             if (array[i] > array[i+1]) {
+                animations.push("Swap");
+                animations.push([i,array[i+1],i+1,array[i]]);
                 //swap array[i] and array[i+1]
                 let temp = array[i];
                 array[i] = array[i+1];
