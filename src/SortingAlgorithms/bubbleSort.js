@@ -7,17 +7,15 @@ export function getBubbleSortAnimations(array) {
             animations.push([j,j+1]);
             animations.push([j,j+1]);
             if (array[j] > array[j+1]) {
+                animations.push("Swap");
                 animations.push([j,array[j+1],j+1,array[j]]);
                 var temp = array[j];
                 array[j] = array[j+1];
                 array[j+1] = temp;
-            } else {
-                animations.push("Did Not Swap");
             }
         }
     }
 
     return animations;
-
 
 }
