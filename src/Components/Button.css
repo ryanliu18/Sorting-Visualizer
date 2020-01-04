@@ -55,8 +55,10 @@
     text-align: center;
     text-transform: uppercase;
     color: hsl(214, 100%, 70%);
+    /*
     text-decoration: underline;
     text-decoration-color: black;
+    */
     text-align: center;
     font-family: "Open Sans Condensed", sans-serif;
     cursor: pointer;
@@ -64,8 +66,10 @@
   }
   
   .title-button-row button {
-    width: 100px;
-    height: 40px;
+    width: auto;
+    height: 45px;
+    padding-left: 15px;
+    padding-right: 15px;
     border: 3px solid hsl(214, 90%, 23%);
     background-color: hsl(214, 100%, 70%);
     color: #ffffff;
@@ -77,6 +81,9 @@
     margin-left: 10px;
     text-align: center;
     transition: all 0.2s ease;
+    -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box; /* Firefox, other Gecko */
+    box-sizing: border-box;
   }
   
   .title-button-row button:hover {
@@ -86,7 +93,7 @@
     color: rgb(225, 226, 159);
   }
   
-  .info-button button {
+  .info-button {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -103,7 +110,7 @@
     transition: all 0.2s ease;
   }
   
-  .info-button button:hover {
+  .info-button:hover {
     background-color: hsl(214, 51%, 61%);
     transform: scale(1.08);
     transition: all 0.2s ease;
