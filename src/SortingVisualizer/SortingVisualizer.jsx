@@ -24,7 +24,7 @@ const ANIMATION_SPEED_HEAP_SORT = 2;
 
 const ANIMATION_SPEED_COCKTAILSHAKER_SORT = 0.7;
 
-const ANIMATION_SPEED_SHELL_SORT = 2;
+const ANIMATION_SPEED_SHELL_SORT = 0.75;
 
 var NUM_OF_BARS = 100;
 
@@ -166,6 +166,11 @@ export default class SortingVisualizer extends React.Component {
             ANIMATION_SPEED = ANIMATION_SPEED_COCKTAILSHAKER_SORT;
         }
 
+        if (algorithm === "shellSort") {
+            animations = getShellSortAnimations(this.state.array);
+            ANIMATION_SPEED = ANIMATION_SPEED_SHELL_SORT;
+        }
+
         for (let i = 0; i < animations.length; i++) {           //using var i = 0 doesnt work for some reason...
 
             const allBars = document.getElementsByClassName('array-bar');
@@ -255,7 +260,7 @@ export default class SortingVisualizer extends React.Component {
 
 
     shellSort() {
-        
+        this.sortWithSwap("shellSort");
 
     }
 
