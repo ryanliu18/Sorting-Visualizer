@@ -54,8 +54,10 @@ function heapify(animations,array,sizeOfHeap,rootIdx) {
     }
 
 
-}
+} 
 /*
+heapSort
+
 
 function heapSort(array) {
     // Total O(n) time to buildHeap
@@ -64,11 +66,11 @@ function heapSort(array) {
     }
     // iterate over heap
     for (let i = array.length -1; i >= 0; i--) {
-        //swap current index i (smallest element) to the beginning (index 0)
+        //swap max value (array[0]) to end of array at index i
         const temp = array[0];
         array[0] = array[i];
         array[i] = temp;
-        //heapify on reduced heap
+        //heapify on reduced heap, to ensure next iteration works
         heapify(animations,array,i,0)
     }
 }
