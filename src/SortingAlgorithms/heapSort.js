@@ -53,4 +53,47 @@ function heapify(animations,array,sizeOfHeap,rootIdx) {
         heapify(animations,array,sizeOfHeap,largestOfRootAndChildrenIdx);
     }
 
+
 }
+/*
+
+function heapSort(array) {
+    // Total O(n) time to buildHeap
+    for (let i = array.length/2 -1; i >= 0; i--) {
+        heapify(animations,array,array.length,i);
+    }
+    // iterate over heap
+    for (let i = array.length -1; i >= 0; i--) {
+        //swap current index i (smallest element) to the beginning (index 0)
+        const temp = array[0];
+        array[0] = array[i];
+        array[i] = temp;
+        //heapify on reduced heap
+        heapify(animations,array,i,0)
+    }
+}
+
+
+function heapify(animations,array,sizeOfHeap,rootIdx) {
+    var largestOfRootAndChildrenIdx = rootIdx;
+    const leftChildIdx = 2*rootIdx+1;
+    const rightChildIdx = 2*rootIdx+2;
+    // if leftChildIdx is within array, and its value is larger than value at largestOfRootAndChildrenIdx, update
+    if (leftChildIdx < sizeOfHeap && array[leftChildIdx]> array[largestOfRootAndChildrenIdx]) {
+        largestOfRootAndChildrenIdx = leftChildIdx;
+    }
+    // if rightChildIdx is within array, and its value is larger than value at largestOfRootAndChildrenIdx, update
+    if (rightChildIdx < sizeOfHeap && array[rightChildIdx] > array[largestOfRootAndChildrenIdx]) {
+        largestOfRootAndChildrenIdx = rightChildIdx;
+    }
+    // if at least one of the previous 2 "if" statements were true
+    if (largestOfRootAndChildrenIdx !== rootIdx) {
+        //swap array[rootIdx] and array[largestOfRootAndChildrenIdx]
+        const temp = array[rootIdx];
+        array[rootIdx] = array[largestOfRootAndChildrenIdx];
+        array[largestOfRootAndChildrenIdx] = temp;
+        // recursive call on largest child as root
+        heapify(animations,array,sizeOfHeap,largestOfRootAndChildrenIdx);
+    }
+}
+*/

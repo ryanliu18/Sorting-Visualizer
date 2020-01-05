@@ -373,7 +373,7 @@ export default class SortingVisualizer extends React.Component {
           `<h2 style= "margin-top: -0.3em;">Motivation</h2>
         <p> We wanted to make this application because when first learning about sorting algorithms, we found it was difficult to imagine the algorithms running in our heads just looking
         at the code. And so, we created this application where you can not only learn about common sorting algorithms, but also visualize them in a centralized platform. We hope that this
-        application will help you learn and understand why, and how these sorting algorithms work in a concise and visual manner, while hopefully having a fun experience along the way!
+        application will help you learn and understand why, and how these sorting algorithms work in a concise and visual manner, while having fun along the way!
         </p>
         <p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://image.flaticon.com/icons/png/512/584/584641.png" alt="" width="129" height="129" /></p>`;
         break;

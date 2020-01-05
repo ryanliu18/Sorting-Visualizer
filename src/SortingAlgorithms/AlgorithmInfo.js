@@ -90,7 +90,33 @@ export function displayAlgorithmInfo(info) {
       }
   
       case 3: {
-        return `<p><strong>Merge Sort</strong></p>`;
+        return `<p><strong>Merge Sort</strong></p>
+        <br/>
+        <p>This is a simple example of a Divide and Conquer algorithm. If the array has size 1, it is sorted 
+        and we return it. Otherwise, we divide the array by half, and sort each half by Merge Sort. We then
+        have two individually sorted half arrays, and now we merge them into a final sorted array.</p>
+
+        <table style ="width:50%" border="3px solid black" border-collapse="collapse" align = "center">
+        <tr>
+        <th>Best Case</th>
+        <th>Average Case</th>
+        <th>Worst Case</th>
+        </tr>
+        <tr>
+        <th>O(nlogn)</th>
+        <th>O(nlogn)</th>
+        <th>O(nlogn)</th>
+        </tr>
+        </table>
+
+        <p>Since Merge Sort is recursive, it can be defined by the following recurrence relation: 
+        T(n) <= 2T(n/2) +cn, where T(n) is the runtime of Merge Sort on an input of size n, and c is some positive constant.
+        The 2T(n/2) comes from the two recursive calls, and the cn from the merge step. Solving this relation with
+        substitution, we see T(n) = O(nlogn) </p>
+
+        <img src="https://i.imgur.com/1H7CVWu.png" alt="" width="45%" height="45%"></img>
+        <img src="https://i.imgur.com/LMvIT6E.png" alt="" width="45%" height="60%"></img>
+        `;
       }
       case 4: {
         return `<p><strong>Heap Sort</strong></p>`;
