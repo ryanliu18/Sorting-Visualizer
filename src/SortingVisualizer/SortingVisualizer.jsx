@@ -8,8 +8,10 @@ import {getQuickSortAnimations} from '../SortingAlgorithms/quickSort';
 import {getHeapSortAnimations} from '../SortingAlgorithms/heapSort';
 import {getCocktailShakerSortAnimations} from '../SortingAlgorithms/cocktailShaker';
 import {getShellSortAnimations} from '../SortingAlgorithms/shellSort';
+import {displayAlgorithmInfo} from '../SortingAlgorithms/AlgorithmInfo';
 import "../Components/Button.css";
 import "../Components/Modal.css";
+import "../Components/AlgorithmModal.css"
 
 const ANIMATION_SPEED_MERGE_SORT  = 3.6; //smaller the speed value, the faster the sort
 
@@ -304,6 +306,34 @@ export default class SortingVisualizer extends React.Component {
       }
 
 
+      openAlgoMenu(info) {
+        var modal = document.getElementById("algo-modal");
+        modal.style.display = "block";
+    
+        // // Get the button that opens the modal
+        // var btn = document.getElementById("info-button");
+    
+        // Get the <span> element that closes the modal
+        var span = document.getElementsByClassName("algo-close")[0];
+    
+        //console.log(modal, btn, span);
+    
+        // When the user clicks on <span> (x), close the modal
+        span.onclick = function () {
+          modal.style.display = "none";
+        };
+    
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function (event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        };
+        document.getElementById(
+          "algo-modal-content"
+        ).innerHTML = displayAlgorithmInfo(info);
+      }
+
   changeText(next) {
     const MAXSLIDE = 5;
     const MINSLIDE = 1;
@@ -326,7 +356,7 @@ export default class SortingVisualizer extends React.Component {
         document.getElementById("helpMenu-content").innerHTML =
           this.HTMLHelper(MAXSLIDE) +
           `
-        <h2 style= "margin-top: -0.3em;"> Welcome to our Pathfinding Visualizer </h2> 
+        <h2 style= "margin-top: -0.3em;"> Welcome to our Sorting Algorithms Visualizer </h2> 
         <h3 style= "margin-top: -0.7em;"> Made by Ryan L. and Eric K.</h3>
         <p> Our pathfinding application simulates multiple pathfinding algorithms. Pathfinding algorithms 
         attempt to compute the shortest path from one point to another. Pathfinding is a fundamental component used in the world every day, from using
@@ -341,11 +371,10 @@ export default class SortingVisualizer extends React.Component {
         document.getElementById("helpMenu-content").innerHTML =
           this.HTMLHelper(MAXSLIDE) +
           `<h2 style= "margin-top: -0.3em;">Motivation</h2>
-        <p> We wanted to make this application because after taking a beginner's algorithms and data structures course, both of 
-        us were amazed by the idea of pathfinding. We created this app to help others understand how certain algorithms 
-        explore and compute the shortest path using visual animations. We also hope this application motivates others
-        to explore other algorithms we have not covered and to research more about the applications and possibilities of
-        pathfinding in the real world!</p>
+        <p> We wanted to make this application because when first learning about sorting algorithms, we found it was difficult to imagine the algorithms running in our heads just looking
+        at the code. And so, we created this application where you can not only learn about common sorting algorithms, but also visualize them in a centralized platform. We hope that this
+        application will help you learn and understand why, and how these sorting algorithms work in a concise and visual manner, while hopefully having a fun experience along the way!
+        </p>
         <p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://image.flaticon.com/icons/png/512/584/584641.png" alt="" width="129" height="129" /></p>`;
         break;
       }
@@ -398,8 +427,7 @@ export default class SortingVisualizer extends React.Component {
           this.HTMLHelper(MAXSLIDE) +
           `<h2 style= "margin-top: -0.3em;"> Last Words </h2>
           <p> We hope you have fun with this application. Please feel free to contact any of us for feedback on the application. You
-          can also check out our Github source code at <a href = "https://github.com/ericrkuo/Pathfinding" target="_blank">Pathfinding Visualizer</a> </p>          
-          <p>*Note: if your screen is small and the proportions of the maze seem wrong, feel free to use CTRL – to zoom out</p>
+          can also check out our Github source code at <a href = "https://github.com/ryanliu18/Sorting-Visualizer" target="_blank">Sorting Algorithms Visualizer</a> </p>          
           <table style="height: 227px; margin-left: auto; margin-right: auto; width: 552px;">
           <tbody>
           <tr>
@@ -451,6 +479,8 @@ export default class SortingVisualizer extends React.Component {
     );
   }
 
+  
+
     render() {
         const{array} = this.state;
 
@@ -495,8 +525,26 @@ export default class SortingVisualizer extends React.Component {
           </div>
           <div id="helpMenu-content" className="modal-content"></div>
         </div>
- 
-            <div className="container">
+
+        <div id="algo-modal" className="algo-modal">
+          <span id="algo-close" className="algo-close">
+            &times;
+          </span>
+          <div id="algo-modal-content" className="algo-modal-content"></div>
+        </div>
+
+        <div className="container">
+          <div className="algo-btn-group">
+            <button onClick={() => this.openAlgoMenu(0)}> &#9432; </button>
+            <button onClick={() => this.openAlgoMenu(1)}> &#9432; </button>
+            <button onClick={() => this.openAlgoMenu(2)}> &#9432; </button>
+            <button onClick={() => this.openAlgoMenu(3)}> &#9432; </button>
+            <button onClick={() => this.openAlgoMenu(4)}> &#9432; </button>
+            <button onClick={() => this.openAlgoMenu(5)}> &#9432; </button>
+            <button onClick={() => this.openAlgoMenu(6)}> &#9432; </button>
+            <button onClick={() => this.openAlgoMenu(7)}> &#9432; </button>
+          </div>
+
             <div className = "btn-group">
             <button onClick = {() => this.bubbleSort()}> Bubble Sort</button> 
             <button onClick = {() => this.selectionSort()}> Selection Sort</button> 
