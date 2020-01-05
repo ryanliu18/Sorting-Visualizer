@@ -114,8 +114,8 @@ export function displayAlgorithmInfo(info) {
         The 2T(n/2) comes from the two recursive calls, and the cn from the merge step. Solving this relation with
         substitution, we see T(n) = O(nlogn) </p>
 
-        <img src="https://i.imgur.com/1H7CVWu.png" alt="" width="45%" height="45%"></img>
-        <img src="https://i.imgur.com/LMvIT6E.png" alt="" width="45%" height="60%"></img>
+        <img src="https://i.imgur.com/1H7CVWu.png" alt="" width="55%" height="45%"></img>
+        <img src="https://i.imgur.com/LMvIT6E.png" alt="" width="55%" height="80%"></img>
         `;
       }
       case 4: {
