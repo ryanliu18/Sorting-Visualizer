@@ -44,8 +44,8 @@ var isRunning = false;
 
 var slideNumber = 0;
 
-var SPEED_FACTOR = 0.01;
-var DEFAULT_VALUE = 10;
+var SPEED_FACTOR = 0;
+var DEFAULT_VALUE = 1;
 
 export default class SortingVisualizer extends React.Component {
     constructor(props) {
@@ -242,7 +242,7 @@ export default class SortingVisualizer extends React.Component {
 
     changeSpeedFactor(){
       var slider = document.getElementById("myRange");
-      SPEED_FACTOR = slider.value;
+      SPEED_FACTOR = 1/slider.value;
     }
 
     bubbleSort() { 
@@ -523,7 +523,7 @@ export default class SortingVisualizer extends React.Component {
           </div>
 
         <div className = "slidercontainer">
-          <input type="range" min="0.01" max="20" step="0.01" defaultValue = {DEFAULT_VALUE} className = "slider" id="myRange" onChange = {()=>this.updateSlider()}></input>
+          <input type="range" min="0.1" max="10" step="0.01" defaultValue = {DEFAULT_VALUE} className = "slider" id="myRange" onChange = {()=>this.updateSlider()}></input>
         </div>
     <span id="sliderValue" className = "sliderValue"> Speed: {DEFAULT_VALUE}x</span>
             </div>
