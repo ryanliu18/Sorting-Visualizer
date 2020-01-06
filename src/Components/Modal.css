@@ -50,6 +50,7 @@
   -moz-box-sizing: border-box; /* Firefox, other Gecko */
   box-sizing: border-box;
   font-family: "Open Sans Condensed", sans-serif;
+  overflow-y: auto;
 }
 
 /* The Close Button */

@@ -358,14 +358,14 @@ export default class SortingVisualizer extends React.Component {
           `
         <h2 style= "margin-top: -0.3em;"> Welcome to our Sorting Algorithms Visualizer </h2> 
         <h3 style= "margin-top: -0.7em;"> Made by Eric K. and Ryan L.</h3>
-        <p> Our sorting algorithms application allows you to see them in action, while learning about their runtime and how they work! Sorting algorithms play an important role
+        <p> This application allows you to visualize 8 common sorting algorithms in action, while learning about their runtime and how they work! Sorting algorithms play an important role
         in the world today, often being used to simplify other problems, and improve the complexity of solutions. Being able to understand the trade-offs between different sorting 
         algorithms, and being able to recognize which algorithm is optimal for a particular situation can drastically improve performance. Whether you are learning
         about sorting algorithms for the first time, or are reviewing the material in preparation for an exam or interview, we hope you find this application useful 
         in your studies as a computer scientist!  
            </p>
         <p> Click on <strong>Next</strong> to continue the tutorial. Otherwise click anywhere outside the box, or the <strong>X</strong> button to play around with our application</p>
-        <p><img style="display: block; margin-left: auto; margin-right: auto; margin-top: auto;" src="https://i.imgur.com/0pmWEyQ.png" alt="" width="225" height="235" /></p>`;
+        <p><img style="display: block; margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto;" src="https://i.imgur.com/0pmWEyQ.png" alt="" width="115" height="120" /></p>`;
         break;
       }
 
@@ -375,9 +375,9 @@ export default class SortingVisualizer extends React.Component {
           `<h2 style= "margin-top: -0.3em;">Motivation</h2>
         <p> We wanted to make this application because when first learning about sorting algorithms, we found it was difficult to imagine the algorithms running in our heads just looking
         at the code. And so, we created this application where you can not only learn about common sorting algorithms, but also visualize them in a centralized platform. We hope that this
-        application will help you learn and understand why, and how these sorting algorithms work in a concise and visual manner, while having fun along the way!
+        application will help you learn why and how these sorting algorithms work in a concise and visual manner, while having fun along the way!
         </p>
-        <p><img style="display: block; margin-left: auto; margin-right: auto; margin-top: auto;" src="https://image.flaticon.com/icons/png/512/584/584641.png" alt="" width="129" height="129" /></p>`;
+        <p><img style="display: block; margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto;" src="https://image.flaticon.com/icons/png/512/584/584641.png" alt="" width="129" height="129" /></p>`;
         break;
       }
 
@@ -388,10 +388,6 @@ export default class SortingVisualizer extends React.Component {
         <p style = "line-height: 1.15em;"> Click the "Scramble!" button at the top bar to randomly shuffle the bars. When you are ready, click the sorting algorithm button
         of choice on the left side of your screen. During the animations, the black bars represent the bars being compared during the execution of the sorting algorithm.
         Once the sort is finished, the bars will turn from <span style = "color: cyan;"> <strong>cyan</strong></span> to <span style = "color: chartreuse;"> <strong>chartreuse</strong></span>! 
-        <br>
-        <br>
-        Trick: To see the best case runtime for all sorting algorithms beside Quick Sort, sort on an already sorted array.
-        If you do this for Quick Sort, this is actually the worst case runtime. (O(n^2))
         <br>
         <br> If you are interested in the runtime and code for each sorting algorithm, click on its respective info button located to its left.
         There, you will find a high-level description, the best, average, and worst case runtimes with analysis, and the implementation code in JavaScript.
@@ -411,7 +407,7 @@ export default class SortingVisualizer extends React.Component {
           <li><strong>Bubble Sort</strong> - Simply checks adjacent pairs, and swaps if necessary. During each iteration, bubbles the largest value to the end of the array.</li>
           <li><strong>Selection Sort</strong> - Finds the minimum value in the entire array[0...n-1], and places it at the beginning. Repeat for the sub array[1...n-1] until sub array has only the last element.</li>
           <li><strong>Insertion Sort</strong> - How you sort cards in your hand. Compare until you find where each value belongs among the previous elements. </li>
-          <li><strongMerge Sort</strong> - A Divide and Conquer algorithm, where you split the array in half and sort them recursively with Merge Sort, and then merge both sorted half arrays into one sorted array. </li>
+          <li><strong>Merge Sort</strong> - A Divide and Conquer algorithm, where you split the array in half and sort them recursively with Merge Sort, and then merge both sorted half arrays into one sorted array. </li>
           <li><strong>Heap Sort</strong> - Uses a Heap data structure. Given an array, we make it into a max Heap, and then remove the root node each time and place it at the end of the array.</li>
           <li><strong>Quick Sort</strong> - Another Divide and Conquer algorithm. We partition the array into elements less than and greater than a certain pivot, and then sort the elements less and greater than the pivot recursively with Quick Sort. </li>
           <li><strong>Cocktail Shaker Sort</strong> - Aka Bidirectional Bubble Sort. Same thing as Bubble Sort, but we Bubble Sort going left to right, and also right to left. </li>
