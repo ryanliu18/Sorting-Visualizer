@@ -38,14 +38,14 @@ export function displayAlgorithmInfo(info) {
       }
   
       case 1: {
-        return `<span style = "color: cyan; font-size: 140%;"> <strong><u>Selection Sort</u></strong></span> 
-
+        return `<br><span style = "color: cyan; font-size: 200%;"> <strong><u>Selection Sort</u></strong></span> 
+        <br>
         <br/>
         <p>We simply find the minimum value in the entire array, and place it at the start. 
         We iterate this process for the remaining n-1 elements. (then n-2, n-3, ... 1 elements)
          So after we iterate through the entire array, it is sorted.</p>
 
-        <p><strong> Runtime: </strong></p>
+        <p><strong><u> Runtime: </u> </strong></p>
         <table style ="width:50%" border="3px solid black" border-collapse="collapse" align = "center">
         <tr>
         <th>Best Case</th>
@@ -63,20 +63,20 @@ export function displayAlgorithmInfo(info) {
         of total comparisions:
         n + n-1 + ... + 2 + 1 = n(n+1)/2 = O(n^2).</p>
 
-        <p><strong>Code: (in JavaScript)</strong></p>
+        <p><strong><u>Code: (in JavaScript)</u></strong></p>
         <img src="https://i.imgur.com/2ToyycQ.png" alt="" width="50%" height="43%"></img>
         `;
       }
   
       case 2: {
-        return `<p><strong>Insertion Sort</strong></p>
-
+        return `<br><span style = "color: cyan; font-size: 200%;"> <strong><u>Insertion Sort</u></strong></span> 
+        <br>
         <br/>
         <p>This is how we sort our hand in card games. We iterate over the array, and for each
         element at index i, we place it at some index j, where <br> 0 <= j <= i such that the sub array 
         from indices 0...i-1,i is sorted. Thus at the end of all iterations, the entire array is sorted.</p>
 
-        <br/>
+        <p><strong><u> Runtime: </u> </strong></p>
         <table style ="width:50%" border="3px solid black" border-collapse="collapse" align = "center">
         <tr>
         <th>Best Case</th>
@@ -96,19 +96,20 @@ export function displayAlgorithmInfo(info) {
         of total comparisions:
         1 + 2 + 3 + ... + n-1 + n = n(n+1)/2 = O(n^2). </p>
 
-        <br/>
-        <p>Code: (in JavaScript)</p>
+        <p><strong><u>Code: (in JavaScript)</u></strong></p>
         <img src="https://i.imgur.com/68lstzn.png" alt="" width="50%" height="43%"></img>
         `;
       }
   
       case 3: {
-        return `<p><strong>Merge Sort</strong></p>
+        return `<br><span style = "color: cyan; font-size: 200%;"> <strong><u>Merge Sort</u></strong></span> 
+        <br>
         <br/>
         <p>This is a simple example of a Divide and Conquer algorithm. If the array has size 1, it is sorted 
         and we return it. Otherwise, we divide the array by half, and sort each half by Merge Sort. We then
         have two individually sorted half arrays, and now we merge them into a final sorted array.</p>
 
+        <p><strong><u> Runtime: </u> </strong></p>
         <table style ="width:50%" border="3px solid black" border-collapse="collapse" align = "center">
         <tr>
         <th>Best Case</th>
@@ -127,14 +128,14 @@ export function displayAlgorithmInfo(info) {
         The 2T(n/2) comes from the two recursive calls, and the cn from the merge step. Solving this relation with
         substitution, we see T(n) = O(nlogn) (forgive the Abuse of Notation)</p>
 
-        <br/>
-        <p>Code: (in JavaScript)</p>
+        <p><strong><u>Code: (in JavaScript)</u></strong></p>
         <img src="https://i.imgur.com/1H7CVWu.png" alt="" width="55%" height="45%"></img>
         <img src="https://i.imgur.com/LMvIT6E.png" alt="" width="55%" height="80%"></img>
         `;
       }
       case 4: {
-        return `<p><strong>Heap Sort</strong></p>
+        return `<br><span style = "color: cyan; font-size: 200%;"> <strong><u>Heap Sort</u></strong></span> 
+        <br>
         <br/>
         <p> We use a binary max Heap to implement Heap Sort. A heap is a data structure that satisfies a structural property, 
         and an ordering property. A heap is a complete tree, and every parent node has value >= or <= the value of it's children nodes. 
@@ -146,9 +147,9 @@ export function displayAlgorithmInfo(info) {
         After the array is a Heap, we swap the root node, which is the max value to the end of the arrayso it is now in its correct
         place. We then call heapify on the reduced Heap to ensure it is still a Heap, so we can swap the root node again on
         the next iteration. After n swaps, the array is sorted.
-
         </p>
 
+        <p><strong><u> Runtime: </u> </strong></p>
         <table style ="width:50%" border="3px solid black" border-collapse="collapse" align = "center">
         <tr>
         <th>Best Case</th>
@@ -170,14 +171,14 @@ export function displayAlgorithmInfo(info) {
           most logn. So the max number of recursive calls is logn, each with a constant amount of work. 
           We see the total runtime of heapSort = O(nlogn).</p>
 
-        <br/>
-        <p>Code: (in JavaScript)</p>
+        <p><strong><u>Code: (in JavaScript)</u></strong></p>
         <img src="https://i.imgur.com/ZeA54C4.png" alt="" width="55%" height="45%"></img>
         <img src="https://i.imgur.com/n8q8XS7.png" alt="" width="65%" height="45%"></img>
         `;
       }
       case 5: {
-        return `<p><strong>Quick Sort</strong></p>
+        return `<br><span style = "color: cyan; font-size: 200%;"> <strong><u>Quick Sort</u></strong></span> 
+        <br>
         <br/>
         <p>This is another example of a Divide and Conquer algorithm, and is similar to Merge Sort. The general idea is to pick a pivot element,
         and then partition all elements less than this pivot to the left of it, and all elements greater than the pivot to the right of it.
@@ -186,6 +187,7 @@ export function displayAlgorithmInfo(info) {
         and Quick Sort on the sub array to the right of the pivot. At the end, the array is sorted.
         </p>
 
+        <p><strong><u> Runtime: </u> </strong></p>
         <table style ="width:50%" border="3px solid black" border-collapse="collapse" align = "center">
         <tr>
         <th>Best Case</th>
@@ -210,16 +212,16 @@ export function displayAlgorithmInfo(info) {
         In this case, we can model the situation by the following recurrence relation: T(n) <= cn + T(n-1) for some positive constant
         c. T(n-1) is because we now only have one recursive call, on an array of size n-1. Solving by substitution, we see
         T(n) = O(n^2).  
-        <br>
         Alternatively, we see that the work done by partition is like n + n-1 + n-2 + ... + 2 + 1, which is = n(n+1)/2 = O(n^2) </p>
-        <p>Code: (in JavaScript)</p>
+
+        <p><strong><u>Code: (in JavaScript)</u></strong></p>
         <img src="https://i.imgur.com/IznX2TT.png" alt="" width="55%" height="45%"></img>
         <img src="https://i.imgur.com/fXjteJm.png" alt="" width="55%" height="60%"></img>
         `;
       }
       case 6: {
-        return  `<p><strong>Cocktail Shaker Sort</strong></p>
-
+        return  `<br><span style = "color: cyan; font-size: 200%;"> <strong><u>Cocktail Shaker Sort</u></strong></span> 
+                <br>
                 <br/>
                 <p>This is a slight modification of Bubble Sort, hence the alternative name, "Bidirectional Bubble Sort". There
                 are two "passes", the forward pass, and then the backward pass. We perform Bubble Sort on each pass, but the first pass
@@ -227,7 +229,7 @@ export function displayAlgorithmInfo(info) {
                 be "bubbled" to the first index of the array. We increment the first index and decrement the last index, and continue this 
                 process until no swaps happen, which is our termination condition as this tells us the array is sorted.</p>
 
-                <p>
+                <p><strong><u> Runtime: </u> </strong></p>
                 <table style ="width:50%" border="3px solid black" border-collapse="collapse" align = "center">
                 <tr>
                 <th>Best Case</th>
@@ -244,13 +246,13 @@ export function displayAlgorithmInfo(info) {
                 <p>Runtimes are exactly the same as for Bubble Sort. Note: implementation below contains the "swapped"
                 boolean necessary for O(n) best case runtime.</p>
 
-                <p>Code: (in JavaScript)</p>
+                <p><strong><u>Code: (in JavaScript)</u></strong></p>
                 <img src="https://i.imgur.com/vMxFmfF.png" alt="" width="40%" height="74%"></img>
                 `;
       }
       case 7: {
-        return `<p><strong>Shell Sort</strong></p>
-
+        return `<br><span style = "color: cyan; font-size: 200%;"> <strong><u>Shell Sort</u></strong></span> 
+        <br>
         <br/>
         <p> This is a variation on Insertion Sort. It is essentially trying to speed up Insertion Sort, since
         insertion sort is slow when you are inserting an item far away from where it belongs. In Shell Sort, we start off by "gap insertion sorting" elements,
@@ -261,7 +263,7 @@ export function displayAlgorithmInfo(info) {
         at the very last iteration, guaranteeing the array is sorted.
         </p>
 
-        <br/>
+        <p><strong><u> Runtime: </u> </strong></p>
         <table style ="width:50%" border="3px solid black" border-collapse="collapse" align = "center">
         <tr>
         <th>Best Case</th>
@@ -279,12 +281,12 @@ export function displayAlgorithmInfo(info) {
         (innermost for loop breaks after one iteration) There are logn steps in the gap sequence by definition, so the runtime
         is O(nlogn). 
         <br>
+        <br>
         For worst case, we know that worst case for insertion sort is O(n^2). (Assume n is a power of 2 for simplicity)
         So for the final iteration when gap = 1, it takes at most n^2 time. For the iteration before when gap = 2, it takes at most
         n^2/2 time. Continuing on, we get the runtime is <= n^2(1 + 1/2 + 1/4 + ... ) = 2n^2 = O(n^2)</p>
 
-        <br/>
-        <p>Code: (in JavaScript)</p>
+        <p><strong><u>Code: (in JavaScript)</u></strong></p>
         <img src="https://i.imgur.com/aM083nL.png" alt="" width="60%" height="55%"></img>
         `;
       }
