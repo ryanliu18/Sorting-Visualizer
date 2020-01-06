@@ -1,14 +1,15 @@
 export function displayAlgorithmInfo(info) {
     switch (info) {
       case 0: {
-        return  `<p><strong>Bubble Sort</strong></p>
-
+        return  `<br> <span style = "color: cyan; font-size: 200%;"> <strong><u>Bubble Sort</u></strong></span> 
+                <br>
                 <br/>
                 <p>This is one of the simplest sorting algorithms. We simply iterate over the array,
                 checking each adjacent pair of values and swapping them if out of order. After each iteration,
                 the largest value would have "bubbled" to the right, hence the name Bubble sort. Thus, at the
                 end of all iterations, the array is in sorted order.</p>
 
+                <p><strong><u> Runtime: </u> </strong></p>
                 <table style ="width:50%" border="3px solid black" border-collapse="collapse" align = "center">
                 <tr>
                 <th>Best Case</th>
@@ -30,21 +31,21 @@ export function displayAlgorithmInfo(info) {
                 of total comparisions:
                 n + n-1 + ... + 2 + 1 = n(n+1)/2 = O(n^2).</p></p>
 
-                <p>Code: (in JavaScript)</p>
+                <p><strong><u>Code: (in JavaScript)</u></strong></p>
                 <img src="https://i.imgur.com/WLNFw0J.png" alt="" width="60%" height="40%"></img>
                 `;
                 
       }
   
       case 1: {
-        return `<p><strong>Selection Sort</strong></p>
+        return `<span style = "color: cyan; font-size: 140%;"> <strong><u>Selection Sort</u></strong></span> 
 
         <br/>
         <p>We simply find the minimum value in the entire array, and place it at the start. 
         We iterate this process for the remaining n-1 elements. (then n-2, n-3, ... 1 elements)
          So after we iterate through the entire array, it is sorted.</p>
 
-        <br/>
+        <p><strong> Runtime: </strong></p>
         <table style ="width:50%" border="3px solid black" border-collapse="collapse" align = "center">
         <tr>
         <th>Best Case</th>
@@ -61,8 +62,8 @@ export function displayAlgorithmInfo(info) {
         <p>O(n^2) comes from the double for loop. You can think of this as having the following number
         of total comparisions:
         n + n-1 + ... + 2 + 1 = n(n+1)/2 = O(n^2).</p>
-        <br/>
-        <p>Code: (in JavaScript)</p>
+
+        <p><strong>Code: (in JavaScript)</strong></p>
         <img src="https://i.imgur.com/2ToyycQ.png" alt="" width="50%" height="43%"></img>
         `;
       }
@@ -226,6 +227,7 @@ export function displayAlgorithmInfo(info) {
                 be "bubbled" to the first index of the array. We increment the first index and decrement the last index, and continue this 
                 process until no swaps happen, which is our termination condition as this tells us the array is sorted.</p>
 
+                <p>
                 <table style ="width:50%" border="3px solid black" border-collapse="collapse" align = "center">
                 <tr>
                 <th>Best Case</th>
@@ -243,7 +245,7 @@ export function displayAlgorithmInfo(info) {
                 boolean necessary for O(n) best case runtime.</p>
 
                 <p>Code: (in JavaScript)</p>
-                <img src="https://i.imgur.com/vMxFmfF.png" alt="" width="60%" height="40%"></img>
+                <img src="https://i.imgur.com/vMxFmfF.png" alt="" width="40%" height="74%"></img>
                 `;
       }
       case 7: {
@@ -283,7 +285,7 @@ export function displayAlgorithmInfo(info) {
 
         <br/>
         <p>Code: (in JavaScript)</p>
-        <img src="https://i.imgur.com/aM083nL.png" alt="" width="50%" height="43%"></img>
+        <img src="https://i.imgur.com/aM083nL.png" alt="" width="60%" height="55%"></img>
         `;
       }
       default: {
