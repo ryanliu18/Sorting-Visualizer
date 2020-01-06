@@ -47,8 +47,8 @@ var slideNumber = 0;
 //
 
 var SPEED_FACTOR = 0;
-var DEFAULT_VALUE = 10;
-var MAX_VALUE = 20;
+var DEFAULT_VALUE = 1;
+var MAX_VALUE = 10;
 var MIN_VALUE = 0.01;
 
 export default class SortingVisualizer extends React.Component {
@@ -379,7 +379,7 @@ export default class SortingVisualizer extends React.Component {
         in your studies as a computer scientist!  
            </p>
         <p> Click on <strong>Next</strong> to continue the tutorial. Otherwise click anywhere outside the box, or the <strong>X</strong> button to play around with our application</p>
-        <p><img style="display: block; margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto;" src="https://i.imgur.com/0pmWEyQ.png" alt="" width="115" height="120" /></p>`;
+        <p><img style="display: block; margin-left: auto; margin-right: auto; margin-top: auto; margin-bottom: auto;" src="https://i.imgur.com/0pmWEyQ.png" alt="" width="175" height="185" /></p>`;
         break;
       }
 
@@ -407,6 +407,8 @@ export default class SortingVisualizer extends React.Component {
         There, you will find a high-level description, the best, average, and worst case runtimes with analysis, and the implementation code in JavaScript.
         <br>
         <br>
+        Feel free to use the "Sorting Speed" bar at the top, beside this info button. Move to the right to increase speed, and move to the left to decrease speed. If you accidentally
+        decreased the speed too much, just click on the "SORTING ALGORITHMS VISUALIZER" title to refresh the page!
         <p><img style="display: block; margin-left: auto; margin-right: auto; margin-top: auto;" src="https://i.imgur.com/9YYF0Zs.png" alt="" width="205" height="135" /></p>
         <p>&nbsp;</p>
         `;
@@ -516,7 +518,6 @@ export default class SortingVisualizer extends React.Component {
         </div>
 
         <div className="title-button-row">
-          <button onClick={() => this.resetArray()}> Scramble! </button>
 
           <button
             id="info-button"
@@ -526,6 +527,8 @@ export default class SortingVisualizer extends React.Component {
             {" "}
             ?{" "}
           </button>
+
+          <button onClick={() => this.resetArray()}> Scramble! </button>
           </div>
 
         <div className = "slidercontainer">
