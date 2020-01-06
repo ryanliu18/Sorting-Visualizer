@@ -365,7 +365,7 @@ export default class SortingVisualizer extends React.Component {
         in your studies as a computer scientist!  
            </p>
         <p> Click on <strong>Next</strong> to continue the tutorial. Otherwise click anywhere outside the box, or the <strong>X</strong> button to play around with our application</p>
-        <p><img style="display: block; margin-left: auto; margin-right: auto; margin-top: -10px;" src="https://i.imgur.com/0pmWEyQ.png" alt="" width="225" height="235" /></p>`;
+        <p><img style="display: block; margin-left: auto; margin-right: auto; margin-top: auto;" src="https://i.imgur.com/0pmWEyQ.png" alt="" width="225" height="235" /></p>`;
         break;
       }
 
@@ -377,7 +377,7 @@ export default class SortingVisualizer extends React.Component {
         at the code. And so, we created this application where you can not only learn about common sorting algorithms, but also visualize them in a centralized platform. We hope that this
         application will help you learn and understand why, and how these sorting algorithms work in a concise and visual manner, while having fun along the way!
         </p>
-        <p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://image.flaticon.com/icons/png/512/584/584641.png" alt="" width="129" height="129" /></p>`;
+        <p><img style="display: block; margin-left: auto; margin-right: auto; margin-top: auto;" src="https://image.flaticon.com/icons/png/512/584/584641.png" alt="" width="129" height="129" /></p>`;
         break;
       }
 
@@ -397,7 +397,7 @@ export default class SortingVisualizer extends React.Component {
         There, you will find a high-level description, the best, average, and worst case runtimes with analysis, and the implementation code in JavaScript.
         <br>
         <br>
-        <p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://i.imgur.com/9YYF0Zs.png" alt="" width="205" height="135" /></p>
+        <p><img style="display: block; margin-left: auto; margin-right: auto; margin-top: auto;" src="https://i.imgur.com/9YYF0Zs.png" alt="" width="205" height="135" /></p>
         <p>&nbsp;</p>
         `;
         break;
