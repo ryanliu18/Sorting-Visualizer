@@ -408,7 +408,7 @@ export default class SortingVisualizer extends React.Component {
         There, you will find a high-level description, the best, average, and worst case runtimes with analysis, and the implementation code in JavaScript.
         <br>
         <br>
-        Feel free to use the "Sorting Speed" bar at the top, beside this info button. Move to the right to increase speed, and move to the left to decrease speed. If you accidentally
+        Feel free to use the "Sorting Speed" bar at the top, beside the "Scramble!" button. Move to the right to increase speed, and move to the left to decrease speed. If you accidentally
         decreased the speed too much, just click on the "SORTING ALGORITHMS VISUALIZER" title to refresh the page!
         <p><img style="display: block; margin-left: auto; margin-right: auto; margin-top: auto;" src="https://i.imgur.com/9YYF0Zs.png" alt="" width="205" height="135" /></p>
         <p>&nbsp;</p>
