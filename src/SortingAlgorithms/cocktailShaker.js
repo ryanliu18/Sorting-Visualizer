@@ -7,7 +7,6 @@ export function getCocktailShakerSortAnimations(array) {
 
     while(swapped) {
         swapped = false;
-
         //forward pass left to right
         for (let i = startIdx; i < endIdx; i++) {
             animations.push([i,i+1]);
@@ -43,6 +42,7 @@ export function getCocktailShakerSortAnimations(array) {
             }
         }
 
+
         startIdx++;
 
     }
@@ -51,6 +51,7 @@ export function getCocktailShakerSortAnimations(array) {
     
     return animations;
 }
+
 /*
 
 cocktailShakerSort
@@ -91,6 +92,9 @@ function cocktailShakerSort(array) {
                 swapped = true;
             }
         }
+        // increment startIdx, since first index has 
+        // the correct smallest element
+        startIdx++;
     }
 }
 

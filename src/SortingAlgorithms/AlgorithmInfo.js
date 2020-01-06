@@ -247,7 +247,7 @@ export function displayAlgorithmInfo(info) {
                 boolean necessary for O(n) best case runtime.</p>
 
                 <p><strong><u>Code: (in JavaScript)</u></strong></p>
-                <img src="https://i.imgur.com/vMxFmfF.png" alt="" width="40%" height="74%"></img>
+                <img src="https://i.imgur.com/uL2Xgql.png" alt="" width="40%" height="74%"></img>
                 `;
       }
       case 7: {
