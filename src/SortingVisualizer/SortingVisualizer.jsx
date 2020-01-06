@@ -27,7 +27,7 @@ const ANIMATION_SPEED_HEAP_SORT = 2;
 
 const ANIMATION_SPEED_COCKTAILSHAKER_SORT = 0.55;
 
-const ANIMATION_SPEED_SHELL_SORT = 0.7;
+const ANIMATION_SPEED_SHELL_SORT = 2.3;
 
 var NUM_OF_BARS = 100;
 
@@ -357,13 +357,15 @@ export default class SortingVisualizer extends React.Component {
           this.HTMLHelper(MAXSLIDE) +
           `
         <h2 style= "margin-top: -0.3em;"> Welcome to our Sorting Algorithms Visualizer </h2> 
-        <h3 style= "margin-top: -0.7em;"> Made by Ryan L. and Eric K.</h3>
-        <p> Our pathfinding application simulates multiple pathfinding algorithms. Pathfinding algorithms 
-        attempt to compute the shortest path from one point to another. Pathfinding is a fundamental component used in the world every day, from using
-         Google maps to find the shortest route, to directing autonomous robots to minimize the amount of turning, braking or specific application requirements. Our application
-         simulates a maze with walls. </p>
+        <h3 style= "margin-top: -0.7em;"> Made by Eric K. and Ryan L.</h3>
+        <p> Our sorting algorithms application allows you to see them in action, while learning about their runtime and how they work! Sorting algorithms play an important role
+        in the world today, often being used to simplify other problems, and improve the complexity of solutions. Being able to understand the trade-offs between different sorting 
+        algorithms, and being able to recognize which algorithm is optimal for a particular situation can drastically improve performance. Whether you are learning
+        about sorting algorithms for the first time, or are reviewing the material in preparation for an exam or interview, we hope you find this application useful 
+        in your studies as a computer scientist!  
+           </p>
         <p> Click on <strong>Next</strong> to continue the tutorial. Otherwise click anywhere outside the box, or the <strong>X</strong> button to play around with our application</p>
-        <p><img style="display: block; margin-left: auto; margin-right: auto; margin-top: -2.8em;" src="https://i.ibb.co/P9fVVW8/slide0-png.png" alt="" width="225" height="235" /></p>`;
+        <p><img style="display: block; margin-left: auto; margin-right: auto; margin-top: -10px;" src="https://i.imgur.com/0pmWEyQ.png" alt="" width="225" height="235" /></p>`;
         break;
       }
 
@@ -383,24 +385,19 @@ export default class SortingVisualizer extends React.Component {
         document.getElementById("helpMenu-content").innerHTML =
           this.HTMLHelper(MAXSLIDE) +
           `<h2 style= "margin-top: -0.3em;"> How to Use </h2>
-        <p style = "line-height: 1.15em;"> Click and drag anywhere on the grid to draw some walls. You can also 
-        drag and move the start and end nodes to your desired location. On the left side, select the algorithm
-        you want to visualize. If there is no path from the start node to the end node, the path will be <span style = "color: red;"> <strong>red</strong></span>. Otherwise, the path will be <span style = "color: yellow;"> <strong>yellow</strong></span> and the area explored by the algorithm
-        will be <span style = "color: green;"> <strong>green</strong></span>. Press <strong>Clear Board</strong> if you want to start from scratch, or <Strong>Clear Path</strong> if you want to visualize another algorithm with the same walls.
-        We also made templates of mazes at the top of our application. Finally, click on the <strong>?</strong> button to view this tutorial again.</p>
-
-        <table style="height: 108px; width: 190; margin-left: auto; margin-right: auto;">
-        <tbody>
-        <tr style="height: 33.8px;">
-        <td style="width: 65px; height: 33.8px; text-align: center;"><img src="https://icons-for-free.com/iconfiles/png/512/double+arrow+doublechevronright+right+arrows+icon-1320185729292506033.png" alt="" width="27" height="27" /></td>
-        <td style="width: 116px; height: 33.8px; text-align: left;">= startNode</td>
-        </tr>
-        <tr style="height: 17px;">
-        <td style="width: 65px; height: 17px; text-align: center;"><img src="https://i.pinimg.com/originals/ba/3f/f2/ba3ff2209d0c43655116b31f8e2bbd65.png" alt="" width="27" height="27" /></td>
-        <td style="width: 116px; height: 17px; text-align: left;">= finishNode</td>
-        </tr>
-        </tbody>
-        </table>
+        <p style = "line-height: 1.15em;"> Click the "Scramble!" button at the top bar to randomly shuffle the bars. When you are ready, click the sorting algorithm button
+        of choice on the left side of your screen. During the animations, the black bars represent the bars being compared during the execution of the sorting algorithm.
+        Once the sort is finished, the bars will turn from <span style = "color: cyan;"> <strong>cyan</strong></span> to <span style = "color: chartreuse;"> <strong>chartreuse</strong></span>! 
+        <br>
+        <br>
+        Trick: To see the best case runtime for all sorting algorithms beside Quick Sort, sort on an already sorted array.
+        If you do this for Quick Sort, this is actually the worst case runtime. (O(n^2))
+        <br>
+        <br> If you are interested in the runtime and code for each sorting algorithm, click on its respective info button located to its left.
+        There, you will find a high-level description, the best, average, and worst case runtimes with analysis, and the implementation code in JavaScript.
+        <br>
+        <br>
+        <p><img style="display: block; margin-left: auto; margin-right: auto;" src="https://i.imgur.com/9YYF0Zs.png" alt="" width="205" height="135" /></p>
         <p>&nbsp;</p>
         `;
         break;
@@ -409,16 +406,17 @@ export default class SortingVisualizer extends React.Component {
       case 4: {
         document.getElementById("helpMenu-content").innerHTML =
           this.HTMLHelper(MAXSLIDE) +
-          `<h2 style= "margin-top: -0.3em;"> Algorithms </h2>
+          `<h2 style= "margin-top: -0.3em;"> Summary of Sorting Algorithms </h2>
         <ol style = "text-align: left; line-height: 1.05em">
-          <li><strong>Dijkstra's Algorithm</strong> - Guarantees the shortest path by exploring the closest unvisited nodes from the start node. Going from one node to another has a cost/distance of 1</li>
-          <li><strong>Breadth-First Search</strong> - Guarantees the shortest path by exploring all nodes by layers, or in other words, exploring all the neighbouring nodes before moving to the next-level neighbour nodes  </li>
-          <li><strong>Depth-First Search</strong> -  Does not guarantee the shortest path. DFS traverses a maze as deep as far as possible, and then comes back to a fixed point and repeats the process again</li>
-          <li><strong>Iterative Deepening Depth First Search</strong> - Does not guarantee the shortest path. IDDFS is a depth-limited version of depth-first search that is run repeatedly with increasing depth limits until the goal is found </li>
-          <li><strong>A*</strong> - Guarantees the shortest path. Uses heuristic estimated costs and exact costs, and balances the two costs to estimate how far from the goal any node is.  </li>
-          <li><strong>Greedy Best First Search</strong> -  Does not guarantee the shortest path. Uses heuristics as well to guide its way toward the goal, focusing on paths that lead towards the direction of the finish node. </li>
-          <li><strong>BiDirectional BFS</strong> -  Performs BFS on both the start and finish node and stops when the two searches intersect with one another</li>
-        </ol>`;
+          <li><strong>Bubble Sort</strong> - Simply checks adjacent pairs, and swaps if necessary. During each iteration, bubbles the largest value to the end of the array.</li>
+          <li><strong>Selection Sort</strong> - Finds the minimum value in the entire array[0...n-1], and places it at the beginning. Repeat for the sub array[1...n-1] until sub array has only the last element.</li>
+          <li><strong>Insertion Sort</strong> - How you sort cards in your hand. Compare until you find where each value belongs among the previous elements. </li>
+          <li><strongMerge Sort</strong> - A Divide and Conquer algorithm, where you split the array in half and sort them recursively with Merge Sort, and then merge both sorted half arrays into one sorted array. </li>
+          <li><strong>Heap Sort</strong> - Uses a Heap data structure. Given an array, we make it into a max Heap, and then remove the root node each time and place it at the end of the array.</li>
+          <li><strong>Quick Sort</strong> - Another Divide and Conquer algorithm. We partition the array into elements less than and greater than a certain pivot, and then sort the elements less and greater than the pivot recursively with Quick Sort. </li>
+          <li><strong>Cocktail Shaker Sort</strong> - Aka Bidirectional Bubble Sort. Same thing as Bubble Sort, but we Bubble Sort going left to right, and also right to left. </li>
+          <li><strong>Shell Sort</strong> - A variant of Insertion Sort. We insertion sort by "gaps", aiming to improve on the pitfalls of Insertion Sort, which is slow when we need to insert an element far away. </li>
+          </ol>`;
         break;
       }
 
@@ -431,14 +429,15 @@ export default class SortingVisualizer extends React.Component {
           <table style="height: 227px; margin-left: auto; margin-right: auto; width: 552px;">
           <tbody>
           <tr>
-          <td style="width: 157px;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://i.ibb.co/V9qg42q/Eric-Kuo-UBC-Card.jpg" alt="" width="110" height="147" /></td>
-          <td style="width: 199px;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://image.flaticon.com/icons/png/512/87/87090.png" alt="" width="152" height="152" /></td>
           <td style="width: 179px;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://i.ibb.co/jgZ7fF9/81928054-601968013933600-5665482190398423040-n.jpg" alt="" width="130" height="147" /></td>
+          <td style="width: 199px;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://i.imgur.com/X6ou3Ig.png" alt="" width="152" height="152" /></td>
+          <td style="width: 157px;"><img style="display: block; margin-left: auto; margin-right: auto;" src="https://i.ibb.co/V9qg42q/Eric-Kuo-UBC-Card.jpg" alt="" width="110" height="147" /></td>
+
           </tr>
           <tr>
-          <td style="width: 157px; text-align: center;"><a href="https://www.linkedin.com/in/eric-k-1198b6192/" target = "_blank">LinkedIn Eric Kuo</a></td>
-          <td style="width: 199px; text-align: center;">&nbsp;</td>
           <td style="width: 179px; text-align: center;"><a href="https://www.linkedin.com/in/ryan-liu18/" target = "_blank">LinkedIn Ryan Liu</a></td>
+          <td style="width: 199px; text-align: center;">&nbsp;</td>
+          <td style="width: 157px; text-align: center;"><a href="https://www.linkedin.com/in/eric-k-1198b6192/" target = "_blank">LinkedIn Eric Kuo</a></td>
           </tr>
           </tbody>
           </table>

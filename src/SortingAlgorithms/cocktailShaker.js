@@ -51,7 +51,8 @@ export function getCocktailShakerSortAnimations(array) {
     
     return animations;
 }
-/* 
+/*
+
 cocktailShakerSort
 
 function cocktailShakerSort(array) {
@@ -59,11 +60,12 @@ function cocktailShakerSort(array) {
     let endIdx = array.length -1;
     let swapped = true;
 
+    // if no swaps happened during backward pass, exit
     while(swapped) {
         swapped = false;
         //forward pass left to right
         for (let i = startIdx; i < endIdx; i++) {
-
+            // compare adjacent elements
             if (array[i] > array[i+1]) {
                 //swap array[i] and array[i+1]
                 let temp = array[i];
@@ -72,12 +74,15 @@ function cocktailShakerSort(array) {
                 swapped = true;
             }
         }
+        // if no swaps occurred during forward pass, exit
         if (!swapped) break;
         swapped = false;
+        // decrement endIdx, since last index has 
+        // the correct largest element
         endIdx--;
         //backward pass right to left
         for (let i = endIdx-1; i >= startIdx; i--) {
-
+            // compare adjacent elements
             if (array[i] > array[i+1]) {
                 //swap array[i] and array[i+1]
                 let temp = array[i];

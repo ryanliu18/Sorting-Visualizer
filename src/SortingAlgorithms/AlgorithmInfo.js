@@ -26,7 +26,9 @@ export function displayAlgorithmInfo(info) {
                 swap occurs during the first iteration, we set it to true. If the boolean is still false, this
                 means the array is already sorted and we exit. Otherwise, continue bubble sort normally.</p>
 
-                <p>        O(n^2) comes from the double for loop. </p>
+                <p> O(n^2) comes from the double for loop. You can think of this as having the following number
+                of total comparisions:
+                n + n-1 + ... + 2 + 1 = n(n+1)/2 = O(n^2).</p></p>
 
                 <p>Code: (in JavaScript)</p>
                 <img src="https://i.imgur.com/WLNFw0J.png" alt="" width="60%" height="40%"></img>
@@ -56,7 +58,9 @@ export function displayAlgorithmInfo(info) {
         </tr>
         </table>
 
-        <p>O(n^2) comes from the double for loop.</p>
+        <p>O(n^2) comes from the double for loop. You can think of this as having the following number
+        of total comparisions:
+        n + n-1 + ... + 2 + 1 = n(n+1)/2 = O(n^2).</p>
         <br/>
         <p>Code: (in JavaScript)</p>
         <img src="https://i.imgur.com/2ToyycQ.png" alt="" width="50%" height="43%"></img>
@@ -87,7 +91,9 @@ export function displayAlgorithmInfo(info) {
 
         <p>O(n) best case is because if the array is already sorted, we will never enter the inner while loop,
         so Insertion Sort is just a for loop iterating over the array. O(n^2) worst case comes from the 
-        number of executions of the inner while loop, which is up to i times. (j = i-1 to j = 0)</p>
+        number of executions of the inner while loop, which is up to i times. (j = i-1 to j = 0) You can think of this as having the following number
+        of total comparisions:
+        1 + 2 + 3 + ... + n-1 + n = n(n+1)/2 = O(n^2). </p>
 
         <br/>
         <p>Code: (in JavaScript)</p>
@@ -155,12 +161,13 @@ export function displayAlgorithmInfo(info) {
         </tr>
         </table>
         <p>Note: This is assuming distinct elements. If non-distinct elements, best case is O(n) if all elements are equal,
-        since the runtime of heapify goes from O(logn) to O(1).</p>
+        since the runtime of heapify goes from O(logn) to O(1). (since the recursive calls will never execute)</p>
 
         <p>The first for loop (buildHeap) takes O(n) time. (since we do not call heapify of the last half of nodes, 
           which are leaves and so are already Heaps) Then, we iterate over the array and perform n calls to heapify.
           The worst case runtime of heapify is O(logn), since a Heap is a complete tree, thus we are guaranteed a height of at
-          most logn. So, the total runtime of heapSort is O(n + nlogn) = O(nlogn).</p>
+          most logn. So the max number of recursive calls is logn, each with a constant amount of work. 
+          We see the total runtime of heapSort = O(nlogn).</p>
 
         <br/>
         <p>Code: (in JavaScript)</p>
@@ -169,13 +176,115 @@ export function displayAlgorithmInfo(info) {
         `;
       }
       case 5: {
-        return `<p><strong>Quick Sort</strong></p>`;
+        return `<p><strong>Quick Sort</strong></p>
+        <br/>
+        <p>This is another example of a Divide and Conquer algorithm, and is similar to Merge Sort. The general idea is to pick a pivot element,
+        and then partition all elements less than this pivot to the left of it, and all elements greater than the pivot to the right of it.
+        So, there are many versions of Quick Sort, that differ in how they select the pivot. In our implementation, we always pick the last element as 
+        the pivot. After we perform this partitioning of the array, we then perform Quick Sort on the sub array to the left of the pivot,
+        and Quick Sort on the sub array to the right of the pivot. At the end, the array is sorted.
+        </p>
+
+        <table style ="width:50%" border="3px solid black" border-collapse="collapse" align = "center">
+        <tr>
+        <th>Best Case</th>
+        <th>Average Case</th>
+        <th>Worst Case</th>
+        </tr>
+        <tr>
+        <th>O(nlogn)</th>
+        <th>O(nlogn)</th>
+        <th>O(n^2)</th>
+        </tr>
+        </table>
+        <p>Note: We can get O(n) best case for Quick Sort if we use "three-way partition and equal keys"</p>
+        <p>For average case, we assume the pivot will partition the array into two roughly similarly sized "halves". Let's say
+        for simplicity, the two "halves" have size upper bounded by 2n/3. 
+        So, we can describe Quick Sort by the following recurrence relation: T(n) <= cn + 2T(2n/3), where c is some positive constant.
+        The cn comes from the runtime of "partition", and 2T(2n/3) from the two recursive calls to Quick Sort. Solving with substitution, we see
+        T(n) = O(nlogn).  </p>
+
+        <p>For worst case, this occurs when the pivot picked is always the largest or smallest element of the array.
+        Thus, one side of the partition will always be empty, reducing the efficiency of Quick Sort significantly.
+        In this case, we can model the situation by the following recurrence relation: T(n) <= cn + T(n-1) for some positive constant
+        c. T(n-1) is because we now only have one recursive call, on an array of size n-1. Solving by substitution, we see
+        T(n) = O(n^2).  
+        <br>
+        Alternatively, we see that the work done by partition is like n + n-1 + n-2 + ... + 2 + 1, which is = n(n+1)/2 = O(n^2) </p>
+        <p>Code: (in JavaScript)</p>
+        <img src="https://i.imgur.com/IznX2TT.png" alt="" width="55%" height="45%"></img>
+        <img src="https://i.imgur.com/fXjteJm.png" alt="" width="55%" height="60%"></img>
+        `;
       }
       case 6: {
-        return `<p><strong>Cocktail Shaker Sort</strong></p>`;
+        return  `<p><strong>Cocktail Shaker Sort</strong></p>
+
+                <br/>
+                <p>This is a slight modification of Bubble Sort, hence the alternative name, "Bidirectional Bubble Sort". There
+                are two "passes", the forward pass, and then the backward pass. We perform Bubble Sort on each pass, but the first pass
+                will "bubble" the largest element to the last index of the array, and then on the backward pass the smallest element will
+                be "bubbled" to the first index of the array. We increment the first index and decrement the last index, and continue this 
+                process until no swaps happen, which is our termination condition as this tells us the array is sorted.</p>
+
+                <table style ="width:50%" border="3px solid black" border-collapse="collapse" align = "center">
+                <tr>
+                <th>Best Case</th>
+                <th>Average Case</th>
+                <th>Worst Case</th>
+                </tr>
+                <tr>
+                <th>O(n) </th>
+                <th>O(n^2)</th>
+                <th>O(n^2)</th>
+                </tr>
+                </table>
+
+                <p>Runtimes are exactly the same as for Bubble Sort. Note: implementation below contains the "swapped"
+                boolean necessary for O(n) best case runtime.</p>
+
+                <p>Code: (in JavaScript)</p>
+                <img src="https://i.imgur.com/vMxFmfF.png" alt="" width="60%" height="40%"></img>
+                `;
       }
       case 7: {
-        return `<p><strong>Shell Sort</strong></p>`;
+        return `<p><strong>Shell Sort</strong></p>
+
+        <br/>
+        <p> This is a variation on Insertion Sort. It is essentially trying to speed up Insertion Sort, since
+        insertion sort is slow when you are inserting an item far away from where it belongs. In Shell Sort, we start off by "gap insertion sorting" elements,
+        with a "gap" distance away from each other. We progressively decrease this gap using a gap sequence. 
+        There are many different ways to choose gap sequences. We use a simple 
+        floor(n/2), floor(n/4), ... , 1 gap sequence for simplicity. There exist more optimal gap sequences. 
+        But, all gap sequences must end with 1, so that we perform Insertion Sort 
+        at the very last iteration, guaranteeing the array is sorted.
+        </p>
+
+        <br/>
+        <table style ="width:50%" border="3px solid black" border-collapse="collapse" align = "center">
+        <tr>
+        <th>Best Case</th>
+        <th>Average Case</th>
+        <th>Worst Case</th>
+        </tr>
+        <tr>
+        <th>O(nlogn)</th>
+        <th>O(nlogn)</th>
+        <th>O(n^2)</th>
+        </tr>
+        </table>
+
+        <p>For best case, this is when the array is sorted, and so each step in the gap sequence takes roughly n time. 
+        (innermost for loop breaks after one iteration) There are logn steps in the gap sequence by definition, so the runtime
+        is O(nlogn). 
+        <br>
+        For worst case, we know that worst case for insertion sort is O(n^2). (Assume n is a power of 2 for simplicity)
+        So for the final iteration when gap = 1, it takes at most n^2 time. For the iteration before when gap = 2, it takes at most
+        n^2/2 time. Continuing on, we get the runtime is <= n^2(1 + 1/2 + 1/4 + ... ) = 2n^2 = O(n^2)</p>
+
+        <br/>
+        <p>Code: (in JavaScript)</p>
+        <img src="https://i.imgur.com/aM083nL.png" alt="" width="50%" height="43%"></img>
+        `;
       }
       default: {
         return `<p>Sorry, an unexpected error occured, please refresh</p>`;
