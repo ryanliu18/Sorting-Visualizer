@@ -49,7 +49,8 @@ var slideNumber = 0;
 var SPEED_FACTOR = 0;
 var DEFAULT_VALUE = 1;
 var MAX_VALUE = 10;
-var MIN_VALUE = 0.01;
+var MIN_VALUE = 0.1;
+var STEP_SIZE = 0.01;
 
 export default class SortingVisualizer extends React.Component {
     constructor(props) {
@@ -532,7 +533,7 @@ export default class SortingVisualizer extends React.Component {
           </div>
 
         <div className = "slidercontainer">
-          <input type="range" min={MIN_VALUE} max={MAX_VALUE} step="0.01" defaultValue = {DEFAULT_VALUE} className = "slider" id="myRange" onChange = {()=>this.updateSlider()}></input>
+          <input type="range" min={MIN_VALUE} max={MAX_VALUE} step={STEP_SIZE} defaultValue = {DEFAULT_VALUE} className = "slider" id="myRange" onChange = {()=>this.updateSlider()}></input>
         </div>
     <span id="sliderValue" className = "sliderValue"> Speed: {DEFAULT_VALUE}x</span>
             </div>
