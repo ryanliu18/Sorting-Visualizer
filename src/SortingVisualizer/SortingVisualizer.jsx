@@ -43,6 +43,8 @@ var isRunning = false;
 
 var slideNumber = 0;
 
+var SPEED_FACTOR = 1;
+
 export default class SortingVisualizer extends React.Component {
     constructor(props) {
         super(props);
@@ -108,7 +110,7 @@ export default class SortingVisualizer extends React.Component {
                 setTimeout(() => {
                     firstBar.style.backgroundColor = COMPARISON_COLOUR;
                     secondBar.style.backgroundColor = COMPARISON_COLOUR;
-                }, i * ANIMATION_SPEED);
+                }, i * ANIMATION_SPEED * SPEED_FACTOR);
 
             } else if (i % 3 === 1) {
                 const [firstBarIdx,secondBarIdx] = animations[i];
@@ -117,7 +119,7 @@ export default class SortingVisualizer extends React.Component {
                 setTimeout(() => {
                     firstBar.style.backgroundColor = NORMAL_COLOUR;
                     secondBar.style.backgroundColor = NORMAL_COLOUR;
-                }, i * ANIMATION_SPEED);
+                }, i * ANIMATION_SPEED * SPEED_FACTOR);
 
             } else { //i % 3 === 2
                 const [firstBarIdx,newHeight] = animations[i];
@@ -131,7 +133,7 @@ export default class SortingVisualizer extends React.Component {
                         isRunning = false;
     //                console.log(isRunning);
                     }
-                }, i * ANIMATION_SPEED);
+                }, i * ANIMATION_SPEED * SPEED_FACTOR);
             }
 
         }
@@ -189,7 +191,7 @@ export default class SortingVisualizer extends React.Component {
                 setTimeout(() => {
                     firstBar.style.backgroundColor = COMPARISON_COLOUR;
                     secondBar.style.backgroundColor = COMPARISON_COLOUR;
-                    }, i * ANIMATION_SPEED);
+                    }, i * ANIMATION_SPEED * SPEED_FACTOR);
                 } else {
                     i++;
                     const [firstBarIdx,newHeight1,secondBarIdx,newHeight2] = animations[i];
@@ -206,7 +208,7 @@ export default class SortingVisualizer extends React.Component {
                         }
     //                    console.log(isRunning);
 
-                    }, i * ANIMATION_SPEED);
+                    }, i * ANIMATION_SPEED * SPEED_FACTOR);
 
             }
 
@@ -226,7 +228,7 @@ export default class SortingVisualizer extends React.Component {
                     }
     //               console.log(isRunning);
 
-                }, i * ANIMATION_SPEED);
+                }, i * ANIMATION_SPEED * SPEED_FACTOR);
 
 
         }
