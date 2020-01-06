@@ -47,9 +47,9 @@ var slideNumber = 0;
 //
 
 var SPEED_FACTOR = 0;
-var DEFAULT_VALUE = 1;
-var MAX_VALUE = 10;
-var MIN_VALUE = 0.1;
+var DEFAULT_VALUE = 10;
+var MAX_VALUE = 20;
+var MIN_VALUE = 0.01;
 
 export default class SortingVisualizer extends React.Component {
     constructor(props) {
