@@ -13,7 +13,7 @@ import "../Components/Button.css";
 import "../Components/Modal.css";
 import "../Components/AlgorithmModal.css";
 import "../Components/Slider.css";
-//
+
 const ANIMATION_SPEED_MERGE_SORT  = 3.6; //smaller the speed value, the faster the sort
 
 const ANIMATION_SPEED_BUBBLE_SORT = 0.6;
