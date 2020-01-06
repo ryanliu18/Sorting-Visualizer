@@ -11,7 +11,8 @@ import {getShellSortAnimations} from '../SortingAlgorithms/shellSort';
 import {displayAlgorithmInfo} from '../SortingAlgorithms/AlgorithmInfo';
 import "../Components/Button.css";
 import "../Components/Modal.css";
-import "../Components/AlgorithmModal.css"
+import "../Components/AlgorithmModal.css";
+import "../Components/Slider.css";
 
 const ANIMATION_SPEED_MERGE_SORT  = 3.6; //smaller the speed value, the faster the sort
 
@@ -42,6 +43,9 @@ const FINISHED_SORTING_COLOUR = 'chartreuse'
 var isRunning = false;
 
 var slideNumber = 0;
+
+var SPEED_FACTOR = 0.01;
+var DEFAULT_VALUE = 10;
 
 export default class SortingVisualizer extends React.Component {
     constructor(props) {
@@ -86,6 +90,7 @@ export default class SortingVisualizer extends React.Component {
         this.resetColor();
         let animations = [];
         let ANIMATION_SPEED = 0;
+        this.changeSpeedFactor();
 
         if (algorithm === "mergeSort") {
             animations = getMergeSortAnimations(this.state.array);
@@ -108,7 +113,7 @@ export default class SortingVisualizer extends React.Component {
                 setTimeout(() => {
                     firstBar.style.backgroundColor = COMPARISON_COLOUR;
                     secondBar.style.backgroundColor = COMPARISON_COLOUR;
-                }, i * ANIMATION_SPEED);
+                }, i * ANIMATION_SPEED * SPEED_FACTOR);
 
             } else if (i % 3 === 1) {
                 const [firstBarIdx,secondBarIdx] = animations[i];
@@ -117,7 +122,7 @@ export default class SortingVisualizer extends React.Component {
                 setTimeout(() => {
                     firstBar.style.backgroundColor = NORMAL_COLOUR;
                     secondBar.style.backgroundColor = NORMAL_COLOUR;
-                }, i * ANIMATION_SPEED);
+                }, i * ANIMATION_SPEED * SPEED_FACTOR);
 
             } else { //i % 3 === 2
                 const [firstBarIdx,newHeight] = animations[i];
@@ -131,7 +136,7 @@ export default class SortingVisualizer extends React.Component {
                         isRunning = false;
     //                console.log(isRunning);
                     }
-                }, i * ANIMATION_SPEED);
+                }, i * ANIMATION_SPEED * SPEED_FACTOR);
             }
 
         }
@@ -145,7 +150,7 @@ export default class SortingVisualizer extends React.Component {
 
         let animations = [];
         let ANIMATION_SPEED = 0;
-
+        this.changeSpeedFactor();
         if (algorithm === "bubbleSort") {
             animations = getBubbleSortAnimations(this.state.array);
             ANIMATION_SPEED = ANIMATION_SPEED_BUBBLE_SORT;
@@ -189,7 +194,7 @@ export default class SortingVisualizer extends React.Component {
                 setTimeout(() => {
                     firstBar.style.backgroundColor = COMPARISON_COLOUR;
                     secondBar.style.backgroundColor = COMPARISON_COLOUR;
-                    }, i * ANIMATION_SPEED);
+                    }, i * ANIMATION_SPEED * SPEED_FACTOR);
                 } else {
                     i++;
                     const [firstBarIdx,newHeight1,secondBarIdx,newHeight2] = animations[i];
@@ -206,7 +211,7 @@ export default class SortingVisualizer extends React.Component {
                         }
     //                    console.log(isRunning);
 
-                    }, i * ANIMATION_SPEED);
+                    }, i * ANIMATION_SPEED * SPEED_FACTOR);
 
             }
 
@@ -226,13 +231,18 @@ export default class SortingVisualizer extends React.Component {
                     }
     //               console.log(isRunning);
 
-                }, i * ANIMATION_SPEED);
+                }, i * ANIMATION_SPEED * SPEED_FACTOR);
 
 
         }
 
 
         }
+    }
+
+    changeSpeedFactor(){
+      var slider = document.getElementById("myRange");
+      SPEED_FACTOR = slider.value;
     }
 
     bubbleSort() { 
@@ -474,6 +484,19 @@ export default class SortingVisualizer extends React.Component {
     );
   }
 
+  updateSlider(){
+    
+    var slider = document.getElementById("myRange");
+    var sliderValue = document.getElementById("sliderValue");
+    if(isRunning){
+      slider.value = DEFAULT_VALUE;
+    } 
+    slider.value = slider.value;
+    DEFAULT_VALUE = slider.value;
+    sliderValue.innerHTML = `Speed: `+slider.value+`x`
+    console.log(slider.value);
+  }
+
   
 
     render() {
@@ -498,6 +521,11 @@ export default class SortingVisualizer extends React.Component {
             ?{" "}
           </button>
           </div>
+
+        <div className = "slidercontainer">
+          <input type="range" min="0.01" max="20" step="0.01" defaultValue = {DEFAULT_VALUE} className = "slider" id="myRange" onChange = {()=>this.updateSlider()}></input>
+        </div>
+    <span id="sliderValue" className = "sliderValue"> Speed: {DEFAULT_VALUE}x</span>
             </div>
 
         <div id="helpMenu" className="modal">
