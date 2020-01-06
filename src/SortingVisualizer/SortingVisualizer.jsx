@@ -44,7 +44,7 @@ var isRunning = false;
 
 var slideNumber = 0;
 
-var SPEED_FACTOR = 0.01;
+var SPEED_FACTOR;
 var DEFAULT_VALUE = 10;
 var MAX_VALUE = 20;
 var MIN_VALUE = 0.01;
