@@ -515,7 +515,7 @@ export default class SortingVisualizer extends React.Component {
         <>
         <div className="title-container">
         <div className="title" onClick={() => this.refreshPage()}>
-          Sorting Algorithms Visualizer
+          Sorting Algorithms Visualizer!
         </div>
 
         <div className="title-button-row">
