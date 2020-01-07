@@ -317,7 +317,7 @@ export default class SortingVisualizer extends React.Component {
             modal.style.display = "none";
           }
         };
-        this.changeText(1);
+        this.changeText(0);
       }
 
 
@@ -353,18 +353,20 @@ export default class SortingVisualizer extends React.Component {
     const MAXSLIDE = 5;
     const MINSLIDE = 1;
 
-    if (next == 1) {
+    if (next === 1) {
       if (slideNumber === MAXSLIDE) {
         slideNumber = MAXSLIDE;
       } else {
         slideNumber += next;
       }
-    } else {
+    } else if(next===-1){
       if (slideNumber === MINSLIDE) {
         slideNumber = MINSLIDE;
       } else {
         slideNumber += next;
       }
+    } else {
+      slideNumber = MINSLIDE;
     }
     switch (slideNumber) {
       case 1: {
@@ -467,9 +469,13 @@ export default class SortingVisualizer extends React.Component {
     if (slideNumber === MINSLIDE) {
       prevBtn.style.backgroundColor = "lightgrey";
       prevBtn.disabled = true;
+      nextBtn.disabled = false;
+      nextBtn.style.backgroundColor = "hsl(214, 100%, 70%)";
     } else if (slideNumber === MAXSLIDE) {
       nextBtn.disabled = true;
       nextBtn.style.backgroundColor = "lightgrey";
+      prevBtn.disabled = false;
+      prevBtn.style.backgroundColor = "hsl(214, 100%, 70%)";
     } else {
       console.log("reached here");
       prevBtn.disabled = false;
